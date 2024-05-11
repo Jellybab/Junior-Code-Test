@@ -1,4 +1,5 @@
-﻿using JuniorCodeTest.Interfaces;
+﻿using System;
+using JuniorCodeTest.Interfaces;
 using JuniorCodeTest.Models;
 
 using Microsoft.AspNetCore.Components;
@@ -13,6 +14,7 @@ namespace JuniorCodeTest.Components.Pages
 		[Inject]
 		private IRandomUserApiService? RandomUserApiService { get; set; }
 
+		public int userAmount = 5;
 
 		protected override async Task OnInitializedAsync()
 		{
@@ -30,7 +32,8 @@ namespace JuniorCodeTest.Components.Pages
 
 		async Task PopulateUserList()
 		{
-			var users = await RandomUserApiService.GetRandomUserDataFromApi();
+			var users = await RandomUserApiService.GetRandomUserDataFromApi(userAmount);
+			RandomUsers = [];
 			RandomUsers.AddRange(users);
 		}
 	}

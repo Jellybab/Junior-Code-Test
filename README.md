@@ -23,3 +23,9 @@ If you want to add any additional functionality to showcase skills, feel free to
 Documentation for the API can be found [here](https://randomuser.me/documentation)
 
 Please do not hesitate to ask any questions you may have.
+
+## Things added
+
+- table now shows: title, first name, surname, age, country, latitude and longitude for users.
+- table by default shows 5 users although this can now be changed by increasing or decreasing the number in the users to show box.
+- refresh button is adding allowing to show new users based on the amount chosen in the users to show box.

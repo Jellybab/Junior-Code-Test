@@ -6,5 +6,7 @@
 		public string? First { get; set; }
 		public string? Last { get; set; }
 		public int Age { get; set; }
+		public string? Country { get; set; }
+		public Coordinates? Coordinates { get; set;}
 	}
 }

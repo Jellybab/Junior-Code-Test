@@ -9,10 +9,11 @@ namespace JuniorCodeTest.Services
 	{
 		private const string randomUserEndPoint = "https://randomuser.me/api";
 
-		public async Task<List<RequestedUsersModel>> GetRandomUserDataFromApi()
+		public async Task<List<RequestedUsersModel>> GetRandomUserDataFromApi(int userAmount)
 		{
 			var requiredDataList = new List<RequestedUsersModel>();
-			var response = await httpClient.GetAsync(randomUserEndPoint);
+			string extendedUserEndPoint = randomUserEndPoint + "/?results=" + userAmount;
+			var response = await httpClient.GetAsync(extendedUserEndPoint);
 
 			if (response.IsSuccessStatusCode)
 			{
@@ -29,10 +30,12 @@ namespace JuniorCodeTest.Services
 							Age = randomUser.dob.age,
 							First = randomUser.name.first,
 							Last = randomUser.name.last,
-							Title = randomUser.name.title
+							Title = randomUser.name.title,
+							Country = randomUser.location.country,
+							Coordinates = randomUser.location.coordinates
 						};
 
-						if (requiredDataList.Count >= 5)
+						if (requiredDataList.Count >= userAmount)
 						{
 							break;
 						}

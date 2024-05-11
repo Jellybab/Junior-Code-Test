@@ -4,6 +4,6 @@ namespace JuniorCodeTest.Interfaces
 {
 	public interface IRandomUserApiService
 	{
-		Task<List<RequestedUsersModel>> GetRandomUserDataFromApi();
+		Task<List<RequestedUsersModel>> GetRandomUserDataFromApi(int userAmount);
 	}
 }
